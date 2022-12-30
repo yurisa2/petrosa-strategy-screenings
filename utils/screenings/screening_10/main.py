@@ -7,8 +7,7 @@ from datetime import datetime
 from datetime import timedelta
 
 
-
-def calc_screening(candles, periods):
+def inside_bar_buy(candles, periods):
 
     time_start = time.time()
     ('Start calc_screening')

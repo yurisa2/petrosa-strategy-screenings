@@ -1,8 +1,21 @@
-from fastapi import APIRouter, Response
+from fastapi import APIRouter, Response, Request
+from app.ta import inside_bar_buy
 
-home_router = APIRouter()
+
+router = APIRouter()
 
 
-@home_router.get("/health")
+@router.get("/health")
 async def health() -> Response: 
-    return Response(status_code=200)
+    data = 'I live'
+    
+    return data
+
+
+@router.post("/inside_bar_buy")
+async def router_inside_bar_buy(request: Request):
+    content = await request.json()
+    
+    tempors = await inside_bar_buy.inside_bar_buy(candles=content)
+    
+    return tempors
