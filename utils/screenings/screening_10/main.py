@@ -7,50 +7,6 @@ from datetime import datetime
 from datetime import timedelta
 
 
-def next_candle(date, time_frame):
-
-    print(date, time_frame)
-    date = datetime.now()
-
-    if(time_frame == 'candles_m1'):
-        frame = 1
-        time = 'm'
-    elif(time_frame == 'candles_m5'):
-        frame = 5
-        time = 'm'
-    elif(time_frame == 'candles_m15'):
-        frame = 15
-        time = 'm'
-    elif(time_frame == 'candles_m30'):
-        frame = 30
-        time = 'm'
-    elif(time_frame == 'candles_h1'):
-        frame = 60
-        time = 'm'
-    elif(time_frame == 'candles_d1'):
-        frame = 1
-        time = 'd'
-    elif(time_frame == 'candles_w1'):
-        frame = 1
-        time = 'w'
-
-    if time == 'm':
-        time_check = date + timedelta(minutes=frame)
-
-    elif time == 'd':
-        time_check = date + timedelta(days=frame + 1)
-
-    elif time == 'w':
-        time_check = date + timedelta(weeks=frame + 1)
-
-    else:
-        return 'Erro: Dados recebidos para calcular o póximo candle incorretos.'
-
-    ret = {}
-    ret['next_open'] = time_check
-
-    return ret
-
 
 def calc_screening(candles, periods):
 
