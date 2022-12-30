@@ -1,0 +1,6 @@
+pymongo
+requests
+ndg-httpsclient
+pyopenssl
+pyasn1
+google-cloud-pubsub
