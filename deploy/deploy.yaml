@@ -72,8 +72,6 @@ metadata:
 spec:
   selector:
     app: petrosa-crypto-screenings
-  type: NodePort
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30007
