@@ -5,7 +5,6 @@ metadata:
   namespace: petrosa-apps
   labels:
     app: petrosa-crypto-screenings-app
-    app.kubernetes.io/name: petrosa-crypto-screenings
 spec:
   selector:
     matchLabels:
@@ -69,11 +68,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: petrosa-crypto-screenings
+  name: crypto-screenings-service
 spec:
   selector:
-    app.kubernetes.io/name: petrosa-crypto-screenings
+    app: petrosa-crypto-screenings-app
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: http-web-svc
+  - nodePort: 30163
+    port: 8080
+    targetPort: 80
