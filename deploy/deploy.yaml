@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Pod
+kind: Deployment
 metadata:
   name: petrosa-crypto-screenings
   namespace: petrosa-apps
@@ -23,11 +23,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
-          name: http-web-svc
+          name: 80
 
         env:
           - name: VERSION
-            value: "0.0.5"
+            value: "0.0.4"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
