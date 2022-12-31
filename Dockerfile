@@ -1,6 +1,5 @@
-# Use the official lightweight Python image.
-# https://hub.docker.com/_/python
-FROM python:3.10-slim
+FROM tiangolo/uvicorn-gunicorn:python3.10
+
 
 # Allow statements and log messages to immediately appear in the Knative logs
 ENV PYTHONUNBUFFERED True
@@ -21,5 +20,4 @@ ENV NEW_RELIC_MONITOR_MODE=true
 # ENV NEW_RELIC_LOG_LEVEL=debug
 ENV NEW_RELIC_LOG=/tmp/newrelic.log
 
-# CMD ["newrelic-admin",  "run-program",  "uvicorn", "app.app:router", '--host', '0.0.0.0', '--port', '80']
-CMD ["uvicorn", "app.app:router", '--host', '0.0.0.0', '--port', '80']
+CMD ["newrelic-admin",  "run-program",  "uvicorn", "app.app:router", "--host", "0.0.0.0", "--port", "80"]
