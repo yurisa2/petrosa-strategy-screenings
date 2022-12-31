@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Response, Request
-from app.ta import inside_bar_buy
+from app.ta import screenings
 
 
 router = APIRouter()
 
 
 @router.get("/health")
-async def health() -> Response: 
+async def health(): 
     data = 'I live'
     
     return data
@@ -16,6 +16,6 @@ async def health() -> Response:
 async def router_inside_bar_buy(request: Request):
     content = await request.json()
     
-    tempors = await inside_bar_buy.inside_bar_buy(candles=content)
+    tempors = await screenings.inside_bar_buy(candles=content)
     
     return tempors
