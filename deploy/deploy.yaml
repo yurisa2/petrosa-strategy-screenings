@@ -27,7 +27,7 @@ spec:
 
         env:
           - name: VERSION
-            value: "0.0.7"
+            value: "0.0.8"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
@@ -72,6 +72,8 @@ metadata:
 spec:
   selector:
     app: petrosa-crypto-screenings-app
+  type: NodePort
   ports:
-  - port: 8080
+  - port: 80
     targetPort: 80
+    nodePort: 30007
