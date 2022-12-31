@@ -27,7 +27,7 @@ spec:
 
         env:
           - name: VERSION
-            value: "0.0.3"
+            value: "0.0.4"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
