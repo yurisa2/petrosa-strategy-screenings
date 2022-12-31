@@ -21,4 +21,4 @@ ENV NEW_RELIC_MONITOR_MODE=true
 # ENV NEW_RELIC_LOG_LEVEL=debug
 ENV NEW_RELIC_LOG=/tmp/newrelic.log
 
-CMD ["newrelic-admin",  "run-program",  "uvicorn", "app.app:router", '--host=0.0.0.0', '--port=80']
+CMD ["newrelic-admin",  "run-program",  "uvicorn", "app.app:router", '--host', '0.0.0.0', '--port', '80']
