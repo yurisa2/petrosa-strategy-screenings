@@ -26,4 +26,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: yurisa2/petrosa-nosql-crypto:latest
+          tags: yurisa2/petrosa-crypto-screenings:latest
