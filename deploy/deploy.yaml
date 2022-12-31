@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: petrosa-strategy-gapfinder
+  namespace: petrosa-apps
+  labels:
+    app: petrosa-strategy-gapfinder-app
+spec:
+  selector:
+    matchLabels:
+      app: petrosa-strategy-gapfinder
+  template:
+    metadata:
+      labels:
+        app: petrosa-strategy-gapfinder
+    spec:
+      containers:
+      - name: petrosa-strategy-gapfinder
+        image: yurisa2/petrosa-strategy-gapfinder:latest
+        imagePullPolicy: Always
+        env:
+          - name: VERSION
+            value: "0.0.26"
+          - name: MONGO_URI
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: MONGO_URI
+                optional: false
+          - name: NEW_RELIC_LICENSE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: NEW_RELIC_LICENSE_KEY
+                optional: false
+          - name: KAFKA_SUBSCRIBER
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: KAFKA_SUBSCRIBER
+                optional: false
+          - name: BINANCE_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: BINANCE_API_KEY
+                optional: false
+          - name: BINANCE_API_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: BINANCE_API_SECRET
+                optional: false
+          - name: BINANCE_ORDERS_ENDPOINT
+            valueFrom:
+              secretKeyRef:
+                name: petrosa-apps-secret
+                key: BINANCE_ORDERS_ENDPOINT
+                optional: false
