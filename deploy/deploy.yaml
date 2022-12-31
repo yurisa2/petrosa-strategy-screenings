@@ -21,13 +21,14 @@ spec:
       - name: petrosa-crypto-screenings
         image: yurisa2/petrosa-crypto-screenings:latest
         imagePullPolicy: Always
+
         ports:
         - containerPort: 80
-          name: 80
+          name: http-web-svc
 
         env:
           - name: VERSION
-            value: "0.0.4"
+            value: "0.0.7"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
@@ -75,4 +76,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: http-web-svc
