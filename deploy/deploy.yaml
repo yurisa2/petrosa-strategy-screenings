@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: petrosa-strategy-gapfinder
+  name: petrosa-crypto-screenings
   namespace: petrosa-apps
   labels:
-    app: petrosa-strategy-gapfinder-app
+    app: petrosa-crypto-screenings-app
 spec:
   selector:
     matchLabels:
-      app: petrosa-strategy-gapfinder
+      app: petrosa-crypto-screenings
   template:
     metadata:
       labels:
-        app: petrosa-strategy-gapfinder
+        app: petrosa-crypto-screenings
     spec:
       containers:
-      - name: petrosa-strategy-gapfinder
-        image: yurisa2/petrosa-strategy-gapfinder:latest
+      - name: petrosa-crypto-screenings
+        image: yurisa2/petrosa-crypto-screenings:latest
         imagePullPolicy: Always
         env:
           - name: VERSION
-            value: "0.0.26"
+            value: "0.0.1"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:
