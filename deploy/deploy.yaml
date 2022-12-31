@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Pod
 metadata:
   name: petrosa-crypto-screenings
   namespace: petrosa-apps
@@ -75,4 +75,4 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: http-web-svc
+    targetPort: 80
