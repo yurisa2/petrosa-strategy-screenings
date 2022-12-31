@@ -73,6 +73,5 @@ spec:
   selector:
     app: petrosa-crypto-screenings-app
   ports:
-  - nodePort: 30163
-    port: 8080
+  - port: 8080
     targetPort: 80
