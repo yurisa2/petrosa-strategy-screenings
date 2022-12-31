@@ -5,6 +5,7 @@ metadata:
   namespace: petrosa-apps
   labels:
     app: petrosa-crypto-screenings-app
+    app.kubernetes.io/name: screenings
 spec:
   selector:
     matchLabels:
@@ -59,3 +60,16 @@ spec:
                 name: petrosa-apps-secret
                 key: BINANCE_ORDERS_ENDPOINT
                 optional: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: screenings
+spec:
+  selector:
+    app.kubernetes.io/name: screenings
+  ports:
+  - name: port80
+    protocol: TCP
+    port: 80
+    targetPort: http-web-svc
