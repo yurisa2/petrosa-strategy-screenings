@@ -14,6 +14,8 @@ spec:
       labels:
         app: petrosa-crypto-screenings
     spec:
+      hostname: screenings
+      subdomain: petrosa-screenings
       containers:
       - name: petrosa-crypto-screenings
         image: yurisa2/petrosa-crypto-screenings:latest
