@@ -5,7 +5,7 @@ metadata:
   namespace: petrosa-apps
   labels:
     app: petrosa-crypto-screenings-app
-    app.kubernetes.io/name: screenings
+    app.kubernetes.io/name: petrosa-crypto-screenings
 spec:
   selector:
     matchLabels:
@@ -21,6 +21,10 @@ spec:
       - name: petrosa-crypto-screenings
         image: yurisa2/petrosa-crypto-screenings:latest
         imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+          name: http-web-svc
+
         env:
           - name: VERSION
             value: "0.0.2"
@@ -64,12 +68,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: screenings
+  name: petrosa-crypto-screenings
 spec:
   selector:
-    app.kubernetes.io/name: screenings
+    app.kubernetes.io/name: petrosa-crypto-screenings
   ports:
-  - name: port80
-    protocol: TCP
+  - protocol: TCP
     port: 80
     targetPort: http-web-svc
