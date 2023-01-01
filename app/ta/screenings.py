@@ -1,7 +1,7 @@
 from utils import datacon
 
 
-async def inside_bar_buy(candles, periods = 126):
+async def inside_bar_buy(candles, timeframe, periods = 126):
 
     dat = await datacon.json_to_df(candles)
 
@@ -30,6 +30,7 @@ async def inside_bar_buy(candles, periods = 126):
         print('ema80: ' + str(ema80))
 
         return await datacon.screening_output(ticker=dat.ticker.iloc[-1],
+                                              timeframe=timeframe,
                                               datetime=dat.datetime.iloc[-1],
                                               entry_value=high,
                                               disruption_value=high,
@@ -37,4 +38,4 @@ async def inside_bar_buy(candles, periods = 126):
                                               take_profit=high + ((high - low) * 2),
                                               direction='UPPER')
     else:
-        return False
+        return {}

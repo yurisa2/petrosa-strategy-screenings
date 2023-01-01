@@ -12,10 +12,11 @@ async def health():
     return data
 
 
-@router.post("/inside_bar_buy")
-async def router_inside_bar_buy(request: Request):
+@router.post("/inside_bar_buy/{timeframe}")
+async def router_inside_bar_buy(request: Request, timeframe):
     content = await request.json()
-    
-    tempors = await screenings.inside_bar_buy(candles=content)
+        
+    tempors = await screenings.inside_bar_buy(candles=content, 
+                                              timeframe=timeframe)
     
     return tempors

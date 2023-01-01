@@ -1,4 +1,7 @@
+import datetime
+
 import pandas as pd
+
 
 async def json_to_df(candles_list) -> pd.DataFrame:
     
@@ -14,7 +17,8 @@ async def json_to_df(candles_list) -> pd.DataFrame:
     return dat
 
 async def screening_output(
-                           ticker, 
+                           ticker,
+                           timeframe,
                            datetime, 
                            entry_value, 
                            disruption_value,
