@@ -1,15 +1,13 @@
-from fastapi import APIRouter, Response, Request
-from app.ta import screenings
+from fastapi import APIRouter, Request, Response
 
+from app.ta import screenings
 
 router = APIRouter()
 
 
 @router.get("/health")
-async def health(): 
-    data = 'I live'
-    
-    return data
+async def health() -> Response:
+    return Response(200)
 
 
 @router.post("/inside_bar_buy/{timeframe}")

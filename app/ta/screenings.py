@@ -9,8 +9,6 @@ async def inside_bar_buy(candles, timeframe, periods = 126):
         print('Error: insufficient data')
         raise
 
-    dat = dat.sort_values(['datetime'], ignore_index=True)
-
     close = float(list(dat['close'])[-1])
     low = float(list(dat['low'])[-1])
     high = float(list(dat['high'])[-1])
@@ -26,12 +24,10 @@ async def inside_bar_buy(candles, timeframe, periods = 126):
         and dat.high.iloc[-1] < dat.high.iloc[-2]
         and dat.low.iloc[-1] > dat.low.iloc[-2]
         ):
-        print('ema8: ' + str(ema8))
-        print('ema80: ' + str(ema80))
 
         return await datacon.screening_output(ticker=dat.ticker.iloc[-1],
                                               timeframe=timeframe,
-                                              datetime=dat.datetime.iloc[-1],
+                                              pet_datetime=dat.datetime.iloc[-1],
                                               entry_value=high,
                                               disruption_value=high,
                                               stop_loss=low,

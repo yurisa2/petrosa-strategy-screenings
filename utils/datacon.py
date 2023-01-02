@@ -8,10 +8,6 @@ async def json_to_df(candles_list) -> pd.DataFrame:
     dat = pd.DataFrame(candles_list)
     dat['datetime'] = dat['datetime'].sort_values(ascending=False)
 
-    if len(dat) < 125:
-        print('Error: insufficient data')
-        raise
-
     dat = dat.sort_values(['datetime'], ignore_index=True)
 
     return dat
@@ -19,7 +15,7 @@ async def json_to_df(candles_list) -> pd.DataFrame:
 async def screening_output(
                            ticker,
                            timeframe,
-                           datetime, 
+                           pet_datetime, 
                            entry_value, 
                            disruption_value,
                            stop_loss,
@@ -27,13 +23,27 @@ async def screening_output(
                            direction
                            ):
     
+    if(timeframe == 'm15'):
+        minutes = 15
+    elif(timeframe == 'm30'):
+        minutes = 30
+    elif(timeframe == 'h1'):
+        minutes = 60
+    else:
+        raise
+    
+    
+    valid_until = datetime.datetime.fromisoformat(pet_datetime) + datetime.timedelta(minutes=minutes)
+    
     ret = {}
     ret['ticker'] = ticker
-    ret['datetime'] = datetime
+    ret['datetime'] = pet_datetime
     ret['entry_value'] = entry_value
     ret['disruption_value'] = disruption_value
     ret['stop_loss'] = stop_loss
     ret['take_profit'] = take_profit
     ret['direction'] = direction
+    ret['timeframe'] = timeframe
+    ret['valid_until'] = valid_until
 
     return ret
