@@ -10,11 +10,10 @@ async def health() -> Response:
     return Response(200)
 
 
-@router.post("/inside_bar_buy/{timeframe}")
-async def router_inside_bar_buy(request: Request, timeframe):
+@router.post("/{strategy}/{timeframe}")
+async def router_inside_bar_buy(request: Request, strategy, timeframe):
     content = await request.json()
-        
-    tempors = await screenings.inside_bar_buy(candles=content, 
-                                              timeframe=timeframe)
+    func = getattr(screenings, strategy)
+    result = await func(candles=content, timeframe=timeframe)
     
-    return tempors
+    return func
