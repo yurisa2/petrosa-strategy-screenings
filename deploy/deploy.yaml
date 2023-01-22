@@ -18,7 +18,7 @@ spec:
       subdomain: petrosa-screenings
       containers:
       - name: petrosa-crypto-screenings
-        image: yurisa2/petrosa-crypto-screenings:latest
+        image: yurisa2/petrosa-crypto-screenings:v0.0.9
         imagePullPolicy: Always
 
         ports:
