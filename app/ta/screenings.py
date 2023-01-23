@@ -7,7 +7,6 @@ async def inside_bar_buy(candles, timeframe, periods=126):
 
     dat = await datacon.json_to_df(candles)
 
-
     if len(dat) < periods:
         logging.info('Error: insufficient data')
 
@@ -48,9 +47,7 @@ async def inside_bar_buy(candles, timeframe, periods=126):
 
 async def inside_bar_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -86,9 +83,7 @@ async def inside_bar_sell(candles, timeframe, periods=126):
 
 async def continuous_stitch_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -131,9 +126,7 @@ async def continuous_stitch_buy(candles, timeframe, periods=126):
 
 async def continuous_stitch_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -179,9 +172,7 @@ async def continuous_stitch_sell(candles, timeframe, periods=126):
 
 async def setup_91_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -217,9 +208,7 @@ async def setup_91_buy(candles, timeframe, periods=126):
 
 async def setup_91_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -255,9 +244,7 @@ async def setup_91_sell(candles, timeframe, periods=126):
 
 async def setup_92_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -293,9 +280,7 @@ async def setup_92_buy(candles, timeframe, periods=126):
 
 async def setup_92_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -331,9 +316,7 @@ async def setup_92_sell(candles, timeframe, periods=126):
 
 async def setup_93_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -370,9 +353,7 @@ async def setup_93_buy(candles, timeframe, periods=126):
 
 async def setup_93_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -409,9 +390,7 @@ async def setup_93_sell(candles, timeframe, periods=126):
 
 async def setup_94_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -446,9 +425,7 @@ async def setup_94_buy(candles, timeframe, periods=126):
 
 async def setup_94_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -487,9 +464,7 @@ async def setup_94_sell(candles, timeframe, periods=126):
 
 async def fox_trap_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -533,9 +508,7 @@ async def fox_trap_buy(candles, timeframe, periods=126):
 
 async def fox_trap_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -577,9 +550,7 @@ async def fox_trap_sell(candles, timeframe, periods=126):
 
 async def bear_trap_buy(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')
@@ -621,9 +592,7 @@ async def bear_trap_buy(candles, timeframe, periods=126):
 
 async def bear_trap_sell(candles, timeframe, periods=126):
 
-    dat = candles
-
-    dat = dat.sort_index(ascending=True)
+    dat = await datacon.json_to_df(candles)
 
     if len(dat) < periods:
         logging.info('Error: insufficient data')

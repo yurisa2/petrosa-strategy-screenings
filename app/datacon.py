@@ -129,9 +129,9 @@ async def post_list_results(symbol, test_period, doc, strategy):
 async def json_to_df(candles_list) -> pd.DataFrame:
 
     dat = pd.DataFrame(candles_list)
+    dat['datetime'] = pd.to_datetime(dat['datetime'])
     dat['datetime'] = dat['datetime'].sort_values(ascending=False)
-
-    dat = dat.sort_values(['datetime'], ignore_index=True)
+    dat = dat.set_index('datetime')
 
     return dat
 
