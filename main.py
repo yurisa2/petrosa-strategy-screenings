@@ -7,6 +7,7 @@ def main() -> None:
         host='0.0.0.0',
         port=8090,
         workers=1,
+        log_level='warning'
     )
 
 

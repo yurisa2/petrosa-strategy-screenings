@@ -18,7 +18,7 @@ spec:
       subdomain: petrosa-screenings
       containers:
       - name: petrosa-crypto-screenings
-        image: yurisa2/petrosa-crypto-screenings:v0.0.9
+        image: yurisa2/petrosa-crypto-screenings:v0.0.10
         imagePullPolicy: Always
 
         ports:
@@ -27,7 +27,7 @@ spec:
 
         env:
           - name: VERSION
-            value: "0.0.9"
+            value: "0.0.10"
           - name: MONGO_URI
             valueFrom:
               secretKeyRef:

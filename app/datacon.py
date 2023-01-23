@@ -2,6 +2,7 @@ import datetime
 import logging
 import os
 import random
+import json
 
 import newrelic.agent
 import pandas as pd
@@ -128,6 +129,9 @@ async def post_list_results(symbol, test_period, doc, strategy):
 
 async def json_to_df(candles_list) -> pd.DataFrame:
 
+    if(isinstance(candles_list, str)):
+        candles_list = json.loads(candles_list)
+    
     dat = pd.DataFrame(candles_list)
     dat['datetime'] = pd.to_datetime(dat['datetime'])
     dat['datetime'] = dat['datetime'].sort_values(ascending=False)

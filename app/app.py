@@ -5,7 +5,7 @@ from app.ta import screenings
 router = APIRouter()
 
 
-@router.get("/health")
+@router.get("/healthz")
 async def health() -> Response:
     return Response(200)
 
@@ -16,4 +16,4 @@ async def router_inside_bar_buy(request: Request, strategy, timeframe):
     func = getattr(screenings, strategy)
     result = await func(candles=content, timeframe=timeframe)
     
-    return func
+    return result
